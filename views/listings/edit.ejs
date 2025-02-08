@@ -1,0 +1,77 @@
+<% layout('layouts/head') -%>
+<div class="row">
+    <div class="col-8 offset-2">
+   
+<body>
+    <h3>Edit listing...</h3>
+    <form 
+    method="post" 
+    action="/listings/<%= Listing._id %>?_method=PUT"
+    class="needs-validations"
+    enctype="multipart/form-data" >
+    
+        <div class="mb-3" >
+            <label for="title" class="form-lable">Title</label>
+            <input
+             type="text"
+              name="listing[title]"
+               class="form-control"  
+               value="<%= Listing.title %>" 
+               required>
+          </div>
+          <div class="mb-3" >
+            <label for="description" class="form-lable"> Description</label>
+            <textarea 
+            type="text" 
+            name="listing[description]" 
+            class="form-control"  
+            value="<%= Listing.description %>" 
+            required></textarea>
+          </div>
+          <div class="mb-3" >
+            <img src="<%= originalImageUrl %>" style ="height:10rem" >
+          </div>
+          <div class="mb-3" >
+            <label for="image" class="form-lable">Upload New Image</label>
+            <input  
+            name="listing[image]" 
+            class="form-control"  
+            type="file">
+          </div>
+          <div class="mb-3" >
+            <label for="price" class="form-lable">Price</label>
+            <input 
+            type="number" 
+            name="listing[price]" 
+            class="form-control"  
+            value="<%= Listing.price %>" 
+            required>
+          </div>
+          <div class="mb-3" >
+            <label for="country" class="form-lable">Country</label>
+            <input 
+            type="text" 
+            name="listing[location]" 
+            class="form-control"  
+            value="<%= Listing.location %>" 
+            required>
+          </div>
+          <div class="mb-3" >
+            <label for="location" class="form-lable">Location</label>
+            <input 
+            type="text" 
+            name="listing[country]" 
+            class="form-control" 
+            value="<%= Listing.country %>" 
+            required>
+          </div>
+        
+          <button 
+          type="submit" 
+          class="btn btn-dark">Edit</button>
+    </form>
+</body>        
+</div>
+</div>
+
+
