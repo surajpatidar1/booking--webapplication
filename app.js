@@ -28,9 +28,11 @@ const multer  = require('multer')
 const {storage} = require("./cloudConfig.js");
 const upload = multer({ storage });
 
-const dbUrl = process.env.ATLASDB_URL;
-main().then(()=>{console.log("db connected..");})
-.catch(err => console.log(err));
+// const dbUrl = process.env.ATLASDB_URL;
+// main().then(()=>{console.log("db connected..");})
+// .catch(err => console.log(err));
+mongoose.connect(process.env.ATLASDB_URL)
+  .then(() => console.log('Connected!'));
 
 async function main() {
   await mongoose.connect(dbUrl);
@@ -45,7 +47,7 @@ app.use(express.static(path.join(__dirname,"/public")));
 
 //sessions
 const store = MongoStore.create({
-    mongoUrl: "mongodb+srv://surajpatidar498:XQO4rBenuZaTDePQ@cluster0.psxrv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    mongoUrl: process.env.ATLASDB_URL,
     crypto: {
         secret: process.env.SECRET_CODE,
     },
