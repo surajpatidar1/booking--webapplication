@@ -1,4 +1,4 @@
-# 🏨 Booking Project
+# 🏨Hotel Booking Project
 
 A full-stack Hotel Booking Application that allows users to search, view, and book services (e.g., hotels, events, appointments). The project is built using the MERN (MongoDB, Express.js, React, Node.js) stack.
 
